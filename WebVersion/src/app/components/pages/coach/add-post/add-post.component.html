@@ -1,0 +1,68 @@
+            
+        <form  #addPost="ngForm" (ngSubmit)="registerPost(addPost)">
+            <div class="row">
+        <div class="col-lg-9 col-md-12">
+    <div class="billing-details"> 
+
+
+        <div style="margin-left:40% ;" class="lds-spinner" *ngIf="show_load" #show_loading><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+
+
+        <h3 class="title">Add a Post</h3>
+        <div class="row">
+
+            <div class="col" style="margin-left: 35%;margin-right: 30%; text-align: center;">
+                <div class="form-group">
+                    <label>Coach</label>
+                    <input style="  text-align: center;" type="text" class="form-control" value={{CoachName}} disabled>
+                </div>
+            </div>
+    
+
+
+            <div  class="col-lg-12 col-md-12">
+                <div class="form-group">
+                    <label>Title<span class="required">*</span></label>
+                    <input  ngModel name="title" type="text" class="form-control" required>
+                </div>
+            </div>
+
+            <div  class="col-lg-6 col-md-6">
+                <div class="form-group">
+                    <label>Genre<span class="required">*</span></label>
+                    <select ngModel name="articleType" required>
+                        <option>Training</option>
+                        <option>Nutrition</option>
+                    </select>
+                </div>
+            </div>
+
+            <div  class="col-lg-6 col-md-6">
+                <div class="form-group">
+                    <label>Cover Image<span class="required">*</span></label>
+                    <input  ngModel name="Cimage" (change)="uploadCoverImage($event)"  type="file" class="form-control" required accept=".png,.jpg">
+                </div>
+            </div>
+
+            <div  class="col-lg-12 col-md-12">
+                <div class="form-group">
+                    <label>Choose a PDF or MP4<span class="required">*</span></label>
+                    <input  ngModel name="fileT" (change)="uploadFile($event)" type="file" class="form-control" accept=".pdf,video/mp4" required >
+                </div>
+            </div>
+
+
+        </div>
+    
+    </div>
+
+
+        </div></div>
+        <br>
+
+        <div class="btn-box wow fadeInUp" data-wow-delay="00ms" data-wow-duration="1000ms" style="margin-left: 80%;">
+            <button type="submit" class="default-btn" >Post</button>
+        </div>
+
+
+    </form>

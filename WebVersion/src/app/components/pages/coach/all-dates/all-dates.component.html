@@ -1,0 +1,20 @@
+
+<mat-dialog-content class="mat-typography" style="background-color: black;">
+
+    <br>
+    <h1 >{{day}}</h1>
+    <div class="col-lg-12 col-md-12" *ngFor="let sesn of allSession;" >        
+
+        <div class="single-stream-schedule-box">
+
+            <div class="content">
+                <span class="time">Coach : {{sesn.coachname}}</span>
+
+                <span class="time">{{sesn.startAt}} - {{sesn.endAt}} GMT</span>
+                <h3>Sport : {{sesn.sportname}} // Room : 0{{sesn.roomNum}}</h3>
+            </div>
+        </div>
+    </div>
+
+
+</mat-dialog-content>

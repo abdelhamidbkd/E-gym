@@ -1,0 +1,125 @@
+<app-navbar-style-one></app-navbar-style-one>
+
+<section class="page-title-area page-title-bg1">
+    <div class="container">
+        <div class="page-title-content">
+            <img src={{coach.coachimage}} class="player-image" alt="image">
+            <br>
+            <h1 >{{coach.firstname}} {{coach.lastname}}</h1>
+            <span class="sub-title">{{sport.nameSp}}</span>
+        </div>
+    
+    </div>  
+  
+</section>
+   
+<section class="player-details-area ptb-100" #info_coach>
+    <div class="container" >
+        <div class="player-details-desc">
+            <div class="zinble-post-navigation">
+        <ul>
+            <h3>Sport : {{sport.nameSp}}</h3>
+            <h3>CIN : {{coach.cin}}</h3>
+            <h3>BirthDate : {{coach.birthdate}}</h3>
+            <h3>Adress : {{coach.adress}}</h3>
+        </ul>
+                
+        </div>
+            
+
+        </div>
+    </div>
+
+ <div class="btn-box wow fadeInUp" data-wow-delay="00ms" data-wow-duration="1000ms" style="margin-left: 80%;">
+            <a (click)="show_session()" class="green-btn"> <B> Plan a Session</B></a>
+            <a (click)="show_post()" class="default-btn" > <B> Add a Post </B></a>
+    </div>
+
+<div  #show_plan_session> <div class="container" *ngIf="add_session_show">
+            <app-add-session></app-add-session>   
+            <div class="btn-box wow fadeInUp" data-wow-delay="00ms" data-wow-duration="1000ms" style="margin-left: 80%;">
+                <a (click)="cancel()"  class="grey-btn" > <B>Cancel</B></a>
+            </div>
+
+        </div> </div>
+        
+        
+         
+             <div  #show_add_post>  <div class="container" *ngIf="add_post_show">
+            <app-add-post></app-add-post>   
+            <div class="btn-box wow fadeInUp" data-wow-delay="00ms" data-wow-duration="1000ms" style="margin-left: 80%;">
+                <a (click)="cancel()"  class="grey-btn" > <B>Cancel</B></a>
+            </div>
+           </div>  <br></div>
+       
+        
+        
+       
+
+
+
+
+    <div class="matches-tabs" style="margin-left: 5%;margin-right: 5%;">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+
+            <li class="nav-item" role="presentation"><a class="nav-link active" id="sessions-tab" data-toggle="tab" href="#sessions" role="tab" aria-controls="sessions" aria-selected="true">Your Sessions</a></li>
+            <li class="nav-item" role="presentation"><a class="nav-link" id="posts-tab" data-toggle="tab" href="#posts" role="tab" aria-controls="posts" aria-selected="false">Your Posts</a></li>
+
+        </ul>
+        
+        <div class="tab-content" id="myTabContent">
+
+            <div class="tab-pane fade " id="posts" role="tabpanel">
+
+                <div class="streams-list">
+                    <h3>{{coach.firstname}}'s Posts</h3>
+    
+                    <div class="row">
+    
+    
+                        <div class="col-lg-4 col-md-6" *ngFor="let ar of articles;" >
+                            <div class="single-live-stream-item">
+                                <img src={{ar.articecoverimage}} alt="image" style="width:600px;height:600px;">
+    
+                                <div class="content">
+                                    <h3>{{ar.title}}</h3>
+                                    <ul class="meta">
+                                        <li>{{ar.articleDate}}</li>
+                                        <li>{{ar.articleType}} ({{ar.fileType}})</li>
+                                    </ul>
+                                </div>
+    
+                                <a (click)="download(ar)" class="video-btn"><mat-icon>save_alt</mat-icon></a><br><br>
+                                <a (click)="delete_Post(ar)" class="video2-btn"><mat-icon>delete_outline</mat-icon></a>
+
+                            </div>
+                        </div>
+    
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="tab-pane fade show active" id="sessions" role="tabpanel">
+                <br>
+                <div class="col-lg-9 col-md-12" *ngFor="let session of schedules;">
+                    <div class="single-stream-schedule-box">
+                        <span class="date">{{session.sessionDay}}</span>
+                        <span  class="date" style="margin-left:80%;margin-bottom:30%;" (click)="delete_session(session)">Cancel</span>
+
+                        <div class="content">
+                            <span class="time">{{session.startAt}} - {{session.endAt}} GMT</span>
+                            <h3>Sport : {{sport.nameSp}} // Room : 0{{session.roomNum}}</h3>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<app-footer-style-two></app-footer-style-two>

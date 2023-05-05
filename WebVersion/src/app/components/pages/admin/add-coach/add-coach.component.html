@@ -1,0 +1,110 @@
+<br><br><br><br><br><br><br><br><br>
+
+<section class="checkout-area ptb-80">
+    <div class="container" style="margin-left: 35%;">
+
+
+        <form #addCoach="ngForm" (ngSubmit)="registerCoach(addCoach)" >
+            <div class="row">
+                <div class="col-lg-6 col-md-12">
+                    <div class="billing-details">
+                        <h3 class="title">Coach Informations</h3>
+
+                        <div class="row">
+
+                            <div class="col-lg-6 col-md-6">
+                                <div class="form-group">
+                                    <label>First Name <span class="required">*</span></label>
+                                    <input ngModel type="text" name="firstname" class="form-control" required>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 col-md-6">
+                                <div class="form-group">
+                                    <label>Last Name <span class="required">*</span></label>
+                                    <input  ngModel type="text" name="lastname" class="form-control"required>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 col-md-6">
+                                <div class="form-group">
+                                    <label>CIN<span class="required">*</span></label>
+                                    <input ngModel type="text" name="cin" class="form-control"required>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 col-md-6">
+                                <div class="form-group">
+                                    <label>Bithdate<span class="required">*</span></label>
+                                    <input ngModel type="date" name="birthdate" class="form-control"required>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-12 col-md-6">
+                                <div class="form-group">
+                                    <label>Address <span class="required">*</span></label>
+                                    <input  ngModel type="text" name="adress" class="form-control"required>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-12 col-md-6">
+                                <div class="form-group">
+                                    
+
+
+                                    <mat-form-field class="example-full-width">
+                                        <label>Sport <span class="required">*</span></label>
+                                        <input  matInput
+                                        aria-label="Sport"
+                                        [matAutocomplete]="auto"
+                                        [formControl]="SportCtrl" id="sportname" type="text" class="form-control" required>
+
+                                      
+
+                                     <mat-autocomplete #auto="matAutocomplete">
+                                       <mat-option *ngFor="let sp of filteredSports | async" [value]="sp.nameSp">
+                                        |<span><b>{{sp.nameSp}}</b></span> |
+
+                                       </mat-option>
+                                     </mat-autocomplete>
+                                  
+                                    
+
+
+                                   </mat-form-field>
+
+                                </div>
+                            </div>
+                            
+                            <div class="col-lg-6 col-md-6">
+                                <div class="form-group">
+                                    <label>Password <span class="required">*</span></label>
+                                    <input ngModel type="password" name="password" class="form-control"required>
+                                </div>
+                            </div>
+
+                         
+
+                            
+            <div  class="col-lg-6 col-md-6" style="margin-left: 30%;text-align: center;">
+                <div class="form-group">
+                    <label>Picture<span class="required">*</span></label>
+                    <input ngModel  name="pic"type="file" (change)="upload($event)" class="form-control" accept=".png,.jpg" required>
+                </div>
+            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        
+            <div class="row">              
+                                
+                <div class="col-lg-12 col-md-12" style="margin-left: 17%;">                
+                     <button type="submit" class="default-btn" >Add Coach</button>
+                </div>
+                </div>
+        </form></div>
+    
+    </section>

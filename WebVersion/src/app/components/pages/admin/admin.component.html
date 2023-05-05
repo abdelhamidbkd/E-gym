@@ -1,0 +1,144 @@
+<app-navbar-style-one></app-navbar-style-one>
+<div #show></div>
+<div *ngIf="add_sport || add_room || add_coach ">
+    <app-add-sport *ngIf="add_sport"></app-add-sport>
+<app-add-room *ngIf="add_room"></app-add-room>
+<app-add-coach *ngIf="add_coach"> </app-add-coach>
+    <br>
+    <a  class="grey-btn" (click)="cancel()" style="margin-left: 50%;"> <B>Cancel</B></a>
+</div>
+
+
+
+<section class="player-details-area ptb-100"  style="margin-top: 7.5%; width: 100%;">
+    <div class="matches-tabs" style="margin-left: 5%;margin-right: 5%;">
+        <ul class="nav nav-tabs" id="myTab" role="tablist" style="margin-left: 32.5%;">
+
+            <li class="nav-item" role="presentation"><a class="nav-link active" id="coaches-tab" data-toggle="tab" href="#coaches" role="tab" aria-controls="coaches" aria-selected="true">Coaches</a></li>
+            <li class="nav-item" role="presentation"><a class="nav-link" id="sports-tab" data-toggle="tab" href="#sports" role="tab" aria-controls="sports" aria-selected="false">Sports</a></li>
+            <li class="nav-item" role="presentation"><a class="nav-link" id="rooms-tab" data-toggle="tab" href="#rooms" role="tab" aria-controls="rooms" aria-selected="false">Rooms</a></li>
+        
+        </ul>
+        
+        
+
+        <div class="tab-content" id="myTabContent">
+
+            <div class="tab-pane fade " id="sports" role="tabpanel">
+
+                <div class="btn-box wow fadeInUp" data-wow-delay="00ms" data-wow-duration="1000ms" style="margin-left: 80%;margin-bottom: -7%;">
+                    <a  class="green-btn" (click)="add('sport')"> <B> Add a sport</B></a>
+                </div>
+
+                <section class="blog-area ptb-100">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6"  *ngFor="let sport of AllSports; let ind=index">
+                                <div class="single-blog-post-box">
+                                    <div class="post-image" >
+                                        <a >
+                                            <img src={{sport.sportimage}} style="width:600px;height:300px;" />
+                                          
+                                        </a>
+                                    </div>
+                
+                                    <div class="post-content">
+                                        <h2>   <ul class="post-meta">
+                                            <li>{{sport.nameSp}}</li>
+                                        </ul></h2>
+                                        <a >{{sport.description}}</a>
+                                    </div>
+                                    <div style="margin-left: 70%;">   <button  (click)="openDialogEdit_Sport(sport)" style="background-color:rgb(143, 11, 11);color:aliceblue;">
+                                            <span   class="material-icons" style=" display: flex;justify-content: center;padding: 10%;">edit</span>
+                                        </button>
+                                        <button (click)="Delete_Sport(sport)" style="background-color:rgb(143, 11, 11);color:aliceblue;margin-left: 2.5%;">
+                                            <span class="material-icons" style=" display: flex;justify-content: center;padding: 10%;">delete</span>
+                                        </button></div>
+                                </div>
+                            </div>
+                
+                            
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+
+            
+
+            <div class="tab-pane fade show active" id="coaches" role="tabpanel">
+                
+                <div class="btn-box wow fadeInUp" data-wow-delay="00ms" data-wow-duration="1000ms" style="margin-left: 80%;margin-bottom: 2%;">
+                <a  class="green-btn" (click)="add('coach')"> <B> Add coach</B></a>
+                </div>
+
+                <div class="col" style="background-color: rgb(54, 22, 22);padding: 4%;">
+                
+                    <h2>  Coaches </h2>
+    
+                    <table class="tt">
+                      <tr>
+                        <th>Name</th>
+                        <th>CIN</th>
+                        <th>Sport</th>
+                        <th>Actions</th>
+                      </tr>
+  
+                      <tr *ngFor="let coach of AllCoachs; ">
+                        <td>{{coach.firstname}} {{coach.lastname}}</td>
+                        <td>{{coach.cin}}</td>
+                        <td>{{coach.sportname}}</td>
+                        <td><button  (click)="openDialogEdit_Coach(coach)" style="background-color:rgb(143, 11, 11);color:aliceblue;">
+                                <span   class="material-icons" style=" display: flex;justify-content: center;padding: 10%;">edit</span>
+                            </button>
+                            <button (click)="Delete_Coach(coach)" style="background-color:rgb(143, 11, 11);color:aliceblue;margin-left: 2.5%;">
+                                <span class="material-icons" style=" display: flex;justify-content: center;padding: 10%;">delete</span>
+                            </button>
+                        </td>
+                      </tr>
+                   
+                    </table>
+                </div>
+
+            </div>
+
+            <div class="tab-pane fade" id="rooms" role="tabpanel">
+                
+                <div class="btn-box wow fadeInUp" data-wow-delay="00ms" data-wow-duration="1000ms" style="margin-left: 80%;margin-bottom: 2%;">
+                    <a  class="green-btn" (click)="add('room')"> <B> Add Room</B></a>
+                </div>
+
+                <div class="col" style="background-color: rgb(54, 22, 22);padding: 4%;width: 50%;margin-left: 25%;">
+                
+                    <h2>  Rooms </h2>
+    
+                    <table class="kk" style="width: 100%;">
+                      <tr>
+                        <th>Name</th>
+                        <th>Num</th>
+                        <th>Actions</th>
+                      </tr>
+
+                      <tr *ngFor="let room of AllRooms; ">
+                        <td>{{room.roomName}}</td>
+                        <td>{{room.roomNum}}</td>
+                        <td><button  (click)="openDialogEdit_Room(room)" style="background-color:rgb(143, 11, 11);color:aliceblue;">
+                                <span   class="material-icons" style=" display: flex;justify-content: center;padding: 10%;">edit</span>
+                            </button>
+                            <button (click)="Delete_Room(room)" style="background-color:rgb(143, 11, 11);color:aliceblue;margin-left: 2.5%;">
+                                <span class="material-icons" style=" display: flex;justify-content: center;padding: 10%;">delete</span>
+                            </button>
+                        </td>
+                      </tr>
+
+                    </table>
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+</section>
+

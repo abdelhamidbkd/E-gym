@@ -1,0 +1,104 @@
+<ion-header [translucent]="true">
+  <ion-toolbar >
+    <ion-title size="large" >Welcome {{member.firstname}} {{member.lastname}}
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="logout()">
+        Log Out<ion-icon name="log-out-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="background-image tt" no-scroll >
+  
+  <ion-grid padding style="margin-top: 25%;">
+    <ion-row>
+      <ion-col>
+        
+        <ion-card color="primary" button="true" (click)="goto('schedule')">
+          <ion-card-header  style="text-align: center;">
+            <ion-card-title>Schedule <ion-icon name="calendar-number-outline"></ion-icon></ion-card-title>
+          </ion-card-header>
+        
+          <ion-card-content>
+            Check today sessions
+          </ion-card-content>
+        </ion-card>
+  
+      </ion-col>
+      <ion-col>
+  
+         <ion-card color="success" button="true" (click)="goto('sports')">
+          <ion-card-header   style="text-align: center;">
+            <ion-card-title>Sports <ion-icon name="accessibility-outline"></ion-icon></ion-card-title>
+          </ion-card-header>
+        
+          <ion-card-content>
+          See all the sports in our gym
+          </ion-card-content>
+        </ion-card>
+  
+      </ion-col>
+     
+   
+    </ion-row>
+    
+  
+    <ion-row>
+      <ion-col>
+        
+        <ion-card color="warning" button="true" (click)="goto('training')">
+          <ion-card-header style="text-align: center;">
+            <ion-card-title>Training <ion-icon name="book-outline"></ion-icon></ion-card-title>
+          </ion-card-header>
+        
+          <ion-card-content>
+           Read or watch training programs published by our coachs
+          </ion-card-content>
+        </ion-card>
+  
+      </ion-col>
+      <ion-col>
+  
+         <ion-card color="warning" button="true" (click)="goto('nutrition')">
+          <ion-card-header style="text-align: center;">
+            <ion-card-title>Nutrition <ion-icon name="nutrition-outline"></ion-icon></ion-card-title>
+          </ion-card-header>
+        
+          <ion-card-content>
+            Read or watch Nutrition programs published by our coachs
+          </ion-card-content>
+        </ion-card>
+  
+      </ion-col>
+     
+   
+    </ion-row>
+  
+    <ion-row>
+      <ion-col style="margin-left: 25%;margin-right: 25%;">
+        
+        <ion-card color="danger" button="true" (click)="goto('profile')">
+          <ion-card-header style="text-align: center;">
+            <ion-card-title>Profile <ion-icon name="person-circle-outline"></ion-icon></ion-card-title>
+          </ion-card-header>
+        
+          <ion-card-content>
+           Your profile informations
+          </ion-card-content>
+        </ion-card>
+  
+      </ion-col>
+  
+     
+   
+    </ion-row>
+
+  </ion-grid>
+
+
+
+
+</ion-content>

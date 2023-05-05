@@ -1,0 +1,61 @@
+<app-navbar-style-one></app-navbar-style-one>
+
+    <div>
+        <h1 style="font-size: 65px;margin-left: -5%;">{{today}}</h1>
+    </div>
+
+<section class="blog-area ptb-80" >
+    <div class="container">
+        <div class="row" >
+            <div class="col-4" style="background-color: rgb(31, 29, 29);padding: 4%;">
+                <aside class="widget-area widget-left-sidebar" >
+                    <section class="widget widget_search">
+                        <h3 class="widget-title">My Account </h3><h3 style="color: green;" *ngIf="member.status=='Active'" >Active</h3>
+                        
+                        <h3 style="color: rgb(255, 0, 0);" *ngIf="member.status=='Locked'">Locked <mat-icon>https</mat-icon>
+                            <a  class="green-btn" (click)="openDialogEdit_Activate(member)"> <B> Activate</B></a>
+                        
+                        
+                        </h3>
+                        <div class="imddiv">
+                        <img class="img" src={{member.memberpic}} alt="image" >
+                        </div>
+                        <div class="infos">
+                            <p>Firstname : {{member.firstname}}</p> 
+                            <p>Lastname :{{member.lastname}}</p>
+                            <p>Cin : {{member.cin}}</p>
+                            
+                        </div>
+                    </section>
+                    
+                    
+                </aside>
+            </div>
+            <div class="col"   style="background-color: rgb(54, 22, 22);padding: 5%;text-align: center;">
+                
+                <h2>  Today's Sessions </h2>
+                <table class="tt">
+                  <tr>
+                    <th>Start at </th>
+                    <th>Finish at</th>
+                    <th>Sport</th>
+                    <th>Coach</th>
+                    <th>Room</th>
+                  </tr><br><br>
+                  <tr  *ngFor="let see of sessions; ">
+                    <td>{{see.startAt}}</td>
+                    <td>{{see.endAt}}</td>
+                    <td>{{see.sportname}}</td>
+                    <td style="width: 25%;">{{see.coachname}}</td>
+                    <td>room {{see.roomNum}}</td>
+                  </tr><br>
+               
+                </table>
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+<footer class="footer-area bg-1b060a ptb-70">
+  <app-footer-style-two></app-footer-style-two></footer>

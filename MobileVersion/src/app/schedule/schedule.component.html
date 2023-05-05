@@ -1,0 +1,62 @@
+<ion-header [translucent]="true">
+  <ion-toolbar >
+    <ion-title size="large" >Schedule
+    </ion-title>
+    <ion-buttons slot="start">
+      <ion-button [routerLink]="['/allpages']">
+        <ion-icon name="chevron-back-outline"></ion-icon>Back
+      </ion-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+  <style>
+   #table {
+  box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2);
+  transition:none;
+  width: 90%;
+  margin: auto;
+  color: aliceblue;
+}
+
+
+
+  </style>
+</ion-header>
+   
+
+<ion-content ><br><br><br><br><br>
+  <div>
+    <h1 style="font-size: 50px;margin-left: 20%;">{{today}}</h1>
+</div>
+  
+  <br><br><br>
+  <div >
+    <ion-grid>
+
+      <ion-row style="text-align: center;background-color: rgb(17, 37, 57) ;">
+        <ion-col><b>Starts at</b> </ion-col>
+        <ion-col><b>Ends at</b> </ion-col>
+        <ion-col><b>Sport</b> </ion-col>
+        <ion-col><b>Coach</b> </ion-col>
+        <ion-col><b>Room</b> </ion-col>
+      </ion-row>
+
+      <ion-row *ngFor="let se of sessions ;" style="text-align: center;background-color: rgb(11, 133, 255) ; ">
+        <ion-col>{{se.startAt}}</ion-col>
+        <ion-col>{{se.endAt}} </ion-col>
+        <ion-col>{{se.sportname}} </ion-col>
+        <ion-col> {{se.coachname}}</ion-col>
+        <ion-col>0{{se.roomNum}}</ion-col>
+
+      </ion-row>
+
+    </ion-grid>
+</div>
+  
+ 
+ 
+  
+</ion-content>
+
+
+

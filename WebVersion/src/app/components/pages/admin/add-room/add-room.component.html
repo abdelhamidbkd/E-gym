@@ -1,0 +1,45 @@
+
+<br><br><br><br><br><br><br><br><br>
+
+<section class="checkout-area ptb-80" style="margin-left: 39%;">
+    <div class="container" >
+
+
+        <form  #addRoom="ngForm" (ngSubmit)="registerRoom(addRoom)">
+            <div class="row">
+                <div class="col-lg-6 col-md-12">
+                    <div class="billing-details">
+                        <h3 class="title">Room Informations</h3>
+
+                        <div class="row">
+
+                            <div class="col-lg-6 col-md-6">
+                                <div class="form-group">
+                                    <label>Number <span class="required">*</span></label>
+                                    <input ngModel type="number" name="roomNum"  class="form-control" required>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 col-md-6">
+                                <div class="form-group">
+                                    <label>Name <span class="required">*</span></label>
+                                    <input ngModel type="text" name="roomName" class="form-control" required>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        
+            <div class="row">              
+                                
+                <div class="col-lg-12 col-md-12" style="margin-left: 17%;"> 
+                    <button type="submit" class="default-btn" >Add Room</button>
+
+                </div>
+                </div>
+        </form></div>
+    
+    </section>

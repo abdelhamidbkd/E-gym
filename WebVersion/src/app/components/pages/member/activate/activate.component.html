@@ -1,0 +1,169 @@
+
+<mat-dialog-content class="mat-typography" style="background-color: black;">
+
+    <form #UpSub="ngForm" (ngSubmit)="upSub(UpSub)">
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="billing-details">
+                    <h3 class="title">Subscription Update</h3>
+
+                    <div class="row">
+
+                        <div class="col-lg-6 col-md-6">
+                            <div class="form-group">
+                                <label>Member <span class="required">*</span></label>
+                                <input type="text" id="name" class="form-control" disabled>
+                            </div>
+                        </div>
+
+                    
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12">
+                
+                
+                            <div class="order-details">
+                                <h3 class="title">Choose Your subscription</h3>
+                                    <div class="row" >
+                                        <div class="col-lg-3 col-md-3">        <div class="starter-box">
+                                    <div class="payment-method"  >
+                                        <h3 >{{sub_Starter.nameSub}} Pack</h3>
+                                        <ul class="features-list">
+                                           <i class='bx bx-badge-check'></i> <li> <b>Description</b>: <span> {{sub_Starter.descSub}}</span>     </li>
+                                           <i class='bx bx-badge-check'></i> <li><b>Duration</b> : <span> {{sub_Starter.duration_month}} month(s)</span>  </li>
+                                          <i class='bx bx-badge-check'></i>  <li><b>Price</b> :  <span> {{sub_Starter.price}} MAD </span>   </li>
+                
+                                        </ul>
+                
+                                    </div>
+                                </div></div>
+                                 
+                
+                                <div class="col-lg-3 col-md-3">    <div class="standard-box" >
+                                    <div class="payment-method" >
+                                        <h3 >{{sub_Standard.nameSub}} Pack</h3>
+                                        <ul class="features-list">
+                                            <i class='bx bx-badge-check'></i> <li> <b>Description</b> : <span> {{sub_Standard.descSub}}</span>     </li>
+                                            <i class='bx bx-badge-check'> </i>  <li> <b>Duration</b> : <span> {{sub_Standard.duration_month}} month(s)</span>  </li>
+                                                <i class='bx bx-badge-check'> </i> <li> <b>Price</b> :  <span> {{sub_Standard.price}} MAD </span>   </li>
+                
+                                        </ul>
+                
+                                    </div>
+                                </div></div>
+                
+                            
+                
+                                <div class="col-lg-3 col-md-3">     <div class="deluxe-box" >
+                                    <div class="payment-method" >
+                                        <h3 >{{sub_Deluxe.nameSub}} Pack</h3>
+                                        <ul class="features-list">
+                                            <i class='bx bx-badge-check'> </i> <li> <b>Description</b> : <span> {{sub_Deluxe.descSub}}</span>     </li>
+                                                <i class='bx bx-badge-check'> </i> <li> <b>Duration</b> : <span> {{sub_Deluxe.duration_month}} month(s)</span>  </li>
+                                                    <i class='bx bx-badge-check'></i>  <li> <b>Price</b> :  <span> {{sub_Deluxe.price}} MAD </span>   </li>
+                
+                                        </ul>
+                
+                                    </div>
+                                </div></div>
+                                
+                
+                                <div class="col-lg-3 col-md-3 sub_cust" >     <div >
+                                    <div >
+                                        <h3 >Or Customize your Pack</h3>
+                                        <ul>
+                                            <li> Description : <span>You are free to choose how many days you want </span>     </li>
+                                            <li> Condition : <span> min : 7 days // max : 30 days </span>  </li> </ul>
+                                             <div class="form-group">
+                                                <label>Number of days<span class="required">*</span></label>
+                                                <input  ngModel name="subscriptionDuration" type="number" class="form-control">
+                                            </div> 
+                
+                
+                                       
+                                    </div>
+                                </div></div>
+                
+                                    </div>
+                             
+                
+                
+                                <div class=" payment-method billing-details">
+                                    <div >
+                                        <div class="row ">
+                
+                                                <div class="col-lg-12 col-md-12">
+                                                    <div class="form-group" style="padding-top: 20px;">
+                                                        <label>Choose a Pack <span class="required">*</span>(insurance included in price)</label>
+                                                    
+                                                        <div class="select-box">
+                                                            <select ngModel name="subscriptionName">
+                                                                <option >Starter</option>
+                                                                <option >Standard</option>
+                                                                <option >Deluxe</option>
+                                                                <option>Cutomized</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                        </div>
+                
+                
+                
+                                        </div>
+                                    <br>
+                                        <div class="row" >
+                                            <div class="col-lg-12 col-md-12" >
+                                                <div class="form-group" style="padding-top: 20px;">
+                                                
+                                                    <label id="example-radio-group-label">Choose a Payement Method<span class="required">*</span></label><br>
+                                                    <mat-radio-group ngModel name="PayMethod">
+                                                      <mat-radio-button class="example-radio-button" value="Paypal">PayPal <img src="assets/img/paypal.webp" alt="image" style="width: 7%;height: 7%;margin-left: 1%;">  </mat-radio-button>
+                                                      <mat-radio-button class="example-radio-button" value="Mastercard">Mastercard <img src="assets/img/master-card.png" alt="image" style="width: 7%;height: 7%;margin-left: 1%;">  </mat-radio-button>
+                    
+                                                    </mat-radio-group>
+                                                
+                                                </div>
+                
+                
+                
+                
+                                           
+                                       
+                
+                                            </div>
+                
+                                  
+                
+                                        </div>
+                
+                                    </div> 
+                               
+                                   
+                                </div>
+                            </div>
+                
+                
+                        </div>
+                
+                
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    
+        <div class="row">              
+                            
+            <div class="col-lg-12 col-md-12" >                
+                 <button type="submit" class="default-btn" >Save</button>
+                 <button  class="grey-btn" (click)="close()">Cancel</button>
+            </div>
+            
+            </div>
+    </form>
+
+
+</mat-dialog-content>
+

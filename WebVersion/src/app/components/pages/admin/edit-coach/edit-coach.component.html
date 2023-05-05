@@ -1,0 +1,108 @@
+
+<mat-dialog-content class="mat-typography" style="background-color: black;">
+
+    <form #EditCoach="ngForm" (ngSubmit)="editCoach(EditCoach)" style="margin-left: 20%;margin-right: 20%;">
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="billing-details">
+                    <h3 class="title" style="text-align: center;">Edit Coach : </h3>
+
+                    <div class="row">
+
+                        <div class="col-lg-6 col-md-6">
+                            <div class="form-group">
+                                <label>First Name <span class="required">*</span></label>
+                                <input type="text"  id="firstnam" class="form-control" required>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 col-md-6">
+                            <div class="form-group">
+                                <label>Last Name <span class="required">*</span></label>
+                                <input type="text" id="lastnam" class="form-control" required>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 col-md-6">
+                            <div class="form-group">
+                                <label>CIN<span class="required">*</span></label>
+                                <input type="text" id="cinn" class="form-control" required>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 col-md-6">
+                            <div class="form-group">
+                                <label>Bithdate<span class="required">*</span></label>
+                                <input type="date" id="birthdat" class="form-control" required>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12 col-md-6">
+                            <div class="form-group">
+                                <label>Address <span class="required">*</span></label>
+                                <input type="text" id="adres" class="form-control" required>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12 col-md-6">
+                            <div class="form-group">
+                                <mat-form-field class="example-full-width">
+                                    <label>Sport <span class="required">*</span></label>
+                                    <input  matInput
+                                    aria-label="Sport"
+                                    [matAutocomplete]="auto"
+                                    [formControl]="SportCtrl" id="sportname" type="text" class="form-control" required>
+
+                                  
+
+                                 <mat-autocomplete #auto="matAutocomplete">
+                                   <mat-option *ngFor="let sp of filteredSports | async" [value]="sp.nameSp">
+                                    |<span><b>{{sp.nameSp}}</b></span> |
+
+                                   </mat-option>
+                                 </mat-autocomplete>
+                              
+                                
+
+
+                               </mat-form-field>
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-6 col-md-6">
+                            <div class="form-group">
+                                <label>New Password <span class="required">*</span></label>
+                                <input type="password"  id="psswd" class="form-control" required>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6">
+                            <div class="form-group">
+                                <label>Picture<span class="required">*</span></label>
+                                <img src={{coachh.coachimage}} style="width:200px;height:200px;" />
+
+                                <input  ngModel  name="picc"(change)="upload($event)" type="file" class="form-control" required accept=".png,.jpg">
+                            </div>
+                        </div>
+
+
+                        
+  
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    
+        <div class="row">              
+                            
+            <div class="col-lg-12 col-md-12" style="margin-left:30% ;">                
+                 <button type="submit" class="default-btn" >Save</button>
+                 <button  class="grey-btn" (click)="close()">Cancel</button>
+            </div>
+            
+            </div>
+    </form>
+
+
+</mat-dialog-content>

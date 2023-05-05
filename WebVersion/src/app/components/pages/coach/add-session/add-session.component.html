@@ -1,0 +1,81 @@
+<button class="green-btn" (click)="openDialogDate()" style="margin-left: 50%;">See all sessions by DAY chosen</button>
+           <form  #addSession="ngForm" (ngSubmit)="registerSession(addSession)">
+    <div class="row">
+        <div class="col-lg-9 col-md-12">
+    <div class="billing-details">
+        <h3 class="title">Plan a Session</h3>
+        <div class="row">
+
+            <div class="col" style="margin-left: 35%;margin-right: 30%; text-align: center;">
+                <div class="form-group">
+                    <label>Coach</label>
+                    <input style="  text-align: center;" type="text" class="form-control" value={{CoachName}} disabled>
+                </div>
+            </div>
+
+            <div class="col-lg-12 col-md-12">
+                <div class="form-group">
+                    <label>Day<span class="required">*</span></label>
+                    <input type="date" ngModel name="sessionDay2" id="dayy"class="form-control" required>
+                   
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6">
+                <div class="form-group">
+                    <label>Starts at<span class="required">*</span></label>
+                    <input type="time" ngModel name="startAt" class="form-control" required>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6">
+                <div class="form-group">
+                    <label>Ends at<span class="required">*</span></label>
+                    <input type="time"  ngModel name="endAt" class="form-control" required>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6">
+                <div class="form-group">
+
+                    <mat-form-field class="example-full-width">
+                        <label>Room <span class="required">*</span></label>
+                        <input  matInput
+                        aria-label="Room"
+                        [matAutocomplete]="auto"
+                        [formControl]="RoomCtrl" id="roomname" type="text" class="form-control" required>
+
+                      
+
+                     <mat-autocomplete #auto="matAutocomplete">
+                       <mat-option *ngFor="let ro of filteredRooms | async" [value]="ro.roomName">
+                        |<span><b>{{ro.roomName}}</b></span> |
+
+                       </mat-option>
+                     </mat-autocomplete>
+                  
+                    
+
+
+                   </mat-form-field>
+             
+             
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6">
+                <div class="form-group">
+                    <label>Sport</label>
+                    <input type="text" class="form-control" value={{sport.nameSp}} disabled>
+                </div>
+            </div>
+        </div>
+    
+    </div>
+
+
+        </div></div>
+        <div class="btn-box wow fadeInUp" data-wow-delay="00ms" data-wow-duration="1000ms" style="margin-left: 80%;">
+            <button type="submit" class="default-btn" >Plan</button>
+        </div>
+    
+    </form>

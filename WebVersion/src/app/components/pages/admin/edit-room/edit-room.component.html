@@ -1,0 +1,43 @@
+
+<mat-dialog-content class="mat-typography" style="background-color: black;">
+
+    <form #EditRoom="ngForm" (ngSubmit)="editRoom(EditRoom)">
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="billing-details">
+                    <h3 class="title">Room Informations</h3>
+
+                    <div class="row">
+
+                        <div class="col-lg-6 col-md-6">
+                            <div class="form-group">
+                                <label>Number <span class="required">*</span></label>
+                                <input type="number" id="roomNu" class="form-control" required>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 col-md-6">
+                            <div class="form-group">
+                                <label>Name <span class="required">*</span></label>
+                                <input type="text"  id="roomNam" class="form-control" required>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    
+        <div class="row">              
+                            
+            <div class="col-lg-12 col-md-12" >                
+                 <button type="submit" class="default-btn" >Save</button>
+                 <button  class="grey-btn" (click)="close()">Cancel</button>
+            </div>
+            
+            </div>
+    </form>
+
+
+</mat-dialog-content>
